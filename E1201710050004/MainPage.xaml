@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E1201710050004.MainPage"
+             BackgroundColor="White">
+
+    
+
+    <StackLayout>
+        <Frame Visual="Material" BackgroundColor="White">
+            
+            <Grid Padding="10">
+                <Button BackgroundColor="DarkGreen"  Text="Nueva Ubicacion"  Grid.Row="0" Grid.Column="0" Visual="Material" VerticalOptions="Start" HeightRequest="60"  ></Button>
+                <Button BackgroundColor="DarkGreen" Clicked="ubicaciones_Clicked"  Text="Ubicaciones Guardadas" Grid.Row="0" Grid.Column="1" Visual="Material" VerticalOptions="Start" HeightRequest="60"></Button>
+            </Grid>
+            
+        </Frame>
+        
+        <Frame  Visual="Material" Margin="5">            <Grid>                <Image Grid.Row="0" Source="https://uth.hn/admision/wp-content/uploads/2016/04/logouth.png"></Image>            </Grid>        </Frame>
+
+        <ScrollView>            <StackLayout Padding="10,10,10,10">                <Entry IsReadOnly="True" Text="" Placeholder="Latitud Actual" Visual="Material" x:Name="latitud" ></Entry>                <Entry IsReadOnly="True" Text="" Placeholder="Longitud Actual" Visual="Material" x:Name="longitud"></Entry>                <Editor Keyboard="Text" Placeholder="Describa la ubicacion..." Visual="Material" x:Name="ubicacion" ></Editor>                <Entry  Keyboard="Text" Placeholder="Descripcion Corta" Visual="Material" x:Name="descripcion_corta" ></Entry>                <StackLayout Padding="10">                    <Grid HorizontalOptions="CenterAndExpand">
+                        <Button BackgroundColor="DarkGreen"  Text="Guardar Ubicacion"  Grid.Row="0" Grid.Column="0" Visual="Material" VerticalOptions="Start" HeightRequest="50" Clicked="btnGuardar_Clicked"  ></Button>
+                        <Button BackgroundColor="DarkGreen"  Text="Ubicaciones Guardadas" Grid.Row="1" Grid.Column="0" Visual="Material" VerticalOptions="Start" HeightRequest="50"></Button>
+                    </Grid>                </StackLayout>                            </StackLayout>        </ScrollView>
+        
+        
+    </StackLayout>
+
+</ContentPage>

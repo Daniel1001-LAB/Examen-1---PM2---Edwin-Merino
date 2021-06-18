@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E1201710050004.Ubicaciones">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame  Visual="Material">                <Grid>                                        <Label Grid.Row="0" HeightRequest="50" HorizontalOptions="Center" Text="Ubicaciones Guardadas" FontSize="Title"></Label>                </Grid>            </Frame>
+            <ListView Visual="Material" x:Name="datos" ItemSelected="lista_ItemSelected" SeparatorVisibility="Default"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell >
+                            <Grid HorizontalOptions="CenterAndExpand" Margin="10" >
+                                <Grid.RowDefinitions >                                    <RowDefinition Height="auto"   />
+                                    
+                                </Grid.RowDefinitions>                                <Grid.ColumnDefinitions>                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>                                                                <Label Text="{Binding descripcion_corta}" FontAttributes="Bold" FontSize="Subtitle" Grid.Row="0" Grid.Column="0"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Visual="Material" Padding="20">                <Grid>
+                    <Button BackgroundColor="DarkGreen"  Text="Eliminar"  Grid.Row="0" Grid.Column="0" Visual="Material" VerticalOptions="Start" HeightRequest="60" Clicked="eliminar_Clicked"  ></Button>
+                    <Button BackgroundColor="DarkGreen"  Text="Ver Mapa" Grid.Row="0" Grid.Column="1" Visual="Material" VerticalOptions="Start" Clicked="verMapa_Clicked" HeightRequest="60"></Button>
+                </Grid>            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
