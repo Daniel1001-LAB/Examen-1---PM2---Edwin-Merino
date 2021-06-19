@@ -4,7 +4,15 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="E1201710050004.Mapa">
     <ContentPage.Content>
+        
         <StackLayout>
+            <Label IsVisible="false" x:Name="ubicacion" Text="{Binding Ubicacion}"></Label>
+            <Label IsVisible="false" x:Name="ubicacion_corta" Text="{Binding Descripcion_corta}"></Label>
+            <Label IsVisible="false" x:Name="latitud" Text="{Binding Latitud}"></Label>
+            <Label IsVisible="false" x:Name="longitud" Text="{Binding Longitud}"></Label>
+            <Label IsVisible="false" x:Name="id" Text="{Binding Id}"></Label>
+
+            
             <maps:Map HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Street" TrafficEnabled="True" IsShowingUser="True"  x:Name="mapas"></maps:Map>
         </StackLayout>
     </ContentPage.Content>

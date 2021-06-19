@@ -4,16 +4,21 @@
              x:Class="E1201710050004.Ubicaciones">
     <ContentPage.Content>
         <StackLayout>
-            <Frame  Visual="Material">                <Grid>                                        <Label Grid.Row="0" HeightRequest="50" HorizontalOptions="Center" Text="Ubicaciones Guardadas" FontSize="Title"></Label>                </Grid>            </Frame>
-            <ListView Visual="Material" x:Name="datos" ItemSelected="lista_ItemSelected" SeparatorVisibility="Default"  >
+            <Label IsVisible="false" x:Name="ubicacion" Text=""></Label>
+            <Label IsVisible="false" x:Name="ubicacion_corta" Text=""></Label>
+            <Label IsVisible="false" x:Name="latitud" Text=""></Label>
+            <Label IsVisible="false" x:Name="longitud" Text=""></Label>
+            <Label IsVisible="false" x:Name="id" Text=""></Label>
+            <Frame  Visual="Material">                                <Grid>                                        <Label Grid.Row="0" HeightRequest="50" HorizontalOptions="Center" Text="Ubicaciones Guardadas" FontSize="Title"></Label>                </Grid>            </Frame>
+            <ListView Visual="Material" x:Name="datos" ItemSelected="lista_ItemSelected" SeparatorVisibility="Default"   >
                 <ListView.ItemTemplate>
                     <DataTemplate >
                         <ViewCell >
-                            <Grid HorizontalOptions="CenterAndExpand" Margin="10" >
+                            <Grid >
                                 <Grid.RowDefinitions >                                    <RowDefinition Height="auto"   />
                                     
-                                </Grid.RowDefinitions>                                <Grid.ColumnDefinitions>                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>                                                                <Label Text="{Binding descripcion_corta}" FontAttributes="Bold" FontSize="Subtitle" Grid.Row="0" Grid.Column="0"></Label>
+                                </Grid.RowDefinitions>                                <Grid.ColumnDefinitions>                                    <ColumnDefinition Width="*" />                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>                                <Label Text="{Binding id}" FontAttributes="Bold" FontSize="Subtitle" Grid.Row="0" Grid.Column="0"></Label>                                <Label Text="{Binding descripcion_corta}" FontAttributes="Bold" FontSize="Subtitle" Grid.Row="0" Grid.Column="1"></Label>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

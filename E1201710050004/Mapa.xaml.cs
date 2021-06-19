@@ -22,20 +22,17 @@ namespace E1201710050004
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            Pin ubicacion = new Pin();
-            ubicacion.Label = "Santa Barbara";
-            ubicacion.Address = "Mikasa daniel";
-          
-            mapas.Pins.Add(ubicacion);
-
-            var localizacion = await Geolocation.GetLastKnownLocationAsync();
-
-            if (localizacion == null)
+            Pin pin = new Pin
             {
-                localizacion = await Geolocation.GetLocationAsync();
-                
-            }
-            mapas.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(localizacion.Latitude, localizacion.Longitude), Distance.FromKilometers(1)));
+                Label = ubicacion.Text,
+                Address = ubicacion_corta.Text,
+                Type = PinType.Generic,
+                Position = new Position(Convert.ToDouble(latitud.Text), Convert.ToDouble(longitud.Text))
+            };
+
+            mapas.Pins.Add(pin);
+            mapas.MoveToRegion(mapSpan:MapSpan.FromCenterAndRadius(new Position(Convert.ToDouble(latitud.Text), Convert.ToDouble(longitud.Text)), Distance.FromKilometers(1)));
+
         }
     }
 }

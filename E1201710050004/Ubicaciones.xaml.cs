@@ -23,14 +23,49 @@ namespace E1201710050004
 
         private async void verMapa_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Mapa());
+            var lista = new Lista()
+            {
+                Id = Convert.ToString(id.Text),
+                Latitud = latitud.Text,
+                Longitud = longitud.Text,
+                Ubicacion = ubicacion.Text,
+                Descripcion_corta = ubicacion_corta.Text
+            };
+            var datos = new Mapa();
+            datos.BindingContext = lista;
+            await Navigation.PushAsync(datos);
+
         }
 
         private async void eliminar_Clicked(object sender, EventArgs e)
         {
-            
+            var ubicacionInfo = await getUbicacionAsyncId(Convert.ToInt32(id.Text));
+
+
+            if (ubicacionInfo != null)
+            {
+                await DeleteAsync(ubicacionInfo);
+                mostrar();
+            }
+            else
+            {
+                await DisplayAlert("Warning", "No ha seleccionado ubicacion para borrar", "Ok");
+            }
+
+
+        }
+        private Task<UbicacionInfo> getUbicacionAsyncId(int id)
+        {
+            return conn1
+                .Table<UbicacionInfo>()
+                .Where(item => item.id == id)
+                .FirstOrDefaultAsync();
         }
 
+        private Task<int> DeleteAsync(UbicacionInfo ubicacion)
+        {
+            return conn1.DeleteAsync(ubicacion);
+        }
         public async void mostrar()
         {
             try
@@ -70,7 +105,12 @@ namespace E1201710050004
 
                     };
 
-               
+                    latitud.Text = ubicacionz.latitud;
+                    longitud.Text = ubicacionz.longitud;
+                    id.Text = ubicacionz.id.ToString();
+                    ubicacion.Text = ubicacionz.ubicacion;
+                    ubicacion_corta.Text = ubicacionz.descripcion_corta;
+
                 }
             }
         }
